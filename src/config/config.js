@@ -6,7 +6,7 @@ module.exports = {
 		password: process.env.DB_PASSWORD || '8$h8fl0U',
 		options: {
 			dialect: process.env.DIALECT || 'mysql',
-			host: process.env.HOST || 'verdi.sui-inter.net:3306',
+			host: process.env.HOST || 'http://verdi.sui-inter.net:3306',
 			storage: './lxcodebase.sqlite'
 		}
 	},
