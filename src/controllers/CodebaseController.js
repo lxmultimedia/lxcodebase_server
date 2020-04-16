@@ -25,8 +25,9 @@ module.exports = {
 	},	
 	async post(req,res) {
 		try {
-			const entry = CodeEntry.create(req.body)
-			res.send(entry)
+			const entry = CodeEntry.create(req.body).then(e => {
+				res.send(e)
+			})
 		} catch (err) {
 			res.status(500).send({
 				error: 'An error has occured creating an entry'
@@ -47,5 +48,19 @@ module.exports = {
 				error: 'An error has occured updating an entry'
 			})
 		}
-	}		
+	},
+	async delete(req,res) {
+		try {
+			const {entryId} = req.params
+			console.log(entryId)
+			const entry = await CodeEntry.findByPk(entryId)
+			await entry.destroy()
+			res.send(entry)
+		} catch (err) {
+			console.log(err)
+			res.status(500).send({
+				error: 'An error has occured deleting an entry'
+			})
+		}
+	}
 }

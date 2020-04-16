@@ -25,8 +25,9 @@ module.exports = {
 	},		
 	async post(req,res) {
 		try {
-			const category = Category.create(req.body)
-			res.send(category)
+			const category = Category.create(req.body).then(c => {
+				res.send(c)
+			})
 		} catch (err) {
 			res.status(500).send({
 				error: 'An error has occured creating a category'
@@ -46,5 +47,18 @@ module.exports = {
 				error: 'An error has occured updating a category'
 			})
 		}
-	}	
+	},
+	async delete(req,res) {
+		try {
+			const {categoryId} = req.params
+			const category = await Category.findByPk(categoryId)
+			await category.destroy()
+			res.send(category)
+		} catch (err) {
+			console.log(err)
+			res.status(500).send({
+				error: 'An error has occured deleting a category'
+			})
+		}
+	}		
 }

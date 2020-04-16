@@ -10,29 +10,35 @@ module.exports = (app) => {
 		AuthenticationController.register)
 	// Login User
 	app.post('/login',
-		AuthenticationController.login)
-	// Get all Entries
+		AuthenticationController.login),
+	// Get all listings
 	app.get('/codebase',
-		CodebaseController.index)
-	// Get a single entry
+		CodebaseController.index),
+	// Get a single listing
 	app.get('/codebase/:entryId', 
-		CodebaseController.single)		
-	// Update Entry
+		CodebaseController.single),
+	// Update listing
 	app.put('/codebase/:entryId', 
-		CodebaseController.put)			
-	// Insert an entry
+		CodebaseController.put),		
+	// Insert a listing
 	app.post('/codebase',
-		CodebaseController.post)
+		CodebaseController.post),
+	// delete a listing
+	app.delete('/codebase/:entryId',
+		CodebaseController.delete),
 	// Get all categories
 	app.get('/category',
-		CategoryController.index) 
+		CategoryController.index),
 	// Get a single category
 	app.get('/category/:categoryId', 
-		CategoryController.single)
+		CategoryController.single),
 	// Update a category
 	app.put('/category/:categoryId', 
-		CategoryController.put)	
+		CategoryController.put),
 	// Insert a category
 	app.post('/category',
-		CategoryController.post)	
+		CategoryController.post),
+	// delete a category
+	app.delete('/category/:categoryId',
+		CategoryController.delete)
 }
