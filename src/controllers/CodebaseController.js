@@ -3,7 +3,11 @@ const {CodeEntry} = require('../models')
 module.exports = {
 	async index(req,res) {
 		try {
-			const entries = CodeEntry.findAll().then(function (entries) {
+			const entries = CodeEntry.findAll({
+				order: [
+            ['title', 'ASC']
+        ]
+			}).then(function (entries) {
 			res.send(entries)
 		})
 		} catch (err) {

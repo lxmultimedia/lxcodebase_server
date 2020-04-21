@@ -3,7 +3,11 @@ const {Category} = require('../models')
 module.exports = {
 	async index(req,res) {
 		try {
-			const categories = Category.findAll().then(function (categories) {
+			const categories = Category.findAll({
+				order: [
+            ['title', 'ASC']
+        ]
+			}).then(function (categories) {
 			res.send(categories)
 		})
 		} catch (err) {
