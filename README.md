@@ -5,6 +5,8 @@ Written in Node.js
 
 uses:
 * Sequelize (mysql)
+* JWT
+* Authentication
 
 
 Used for "LXCodebase Client" (https://github.com/lxmultimedia/lxcodebase)
