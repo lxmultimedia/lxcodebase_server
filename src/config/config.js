@@ -6,7 +6,7 @@ module.exports = {
     password: process.env.DB_PASSWORD || 'kE66ho*9',
     options: {
       dialect: process.env.DIALECT || 'mysql',
-      host: process.env.HOST || 'nerthus.metanet.ch',
+      host: process.env.HOST || 'nerthus.ch-meta.net',
       storage: './lxcodebase.sqlite'
     }
   },
