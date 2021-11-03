@@ -56,12 +56,10 @@ module.exports = {
 	async delete(req,res) {
 		try {
 			const {entryId} = req.params
-			console.log(entryId)
 			const entry = await CodeEntry.findByPk(entryId)
 			await entry.destroy()
 			res.send(entry)
 		} catch (err) {
-			console.log(err)
 			res.status(500).send({
 				error: 'An error has occured deleting an entry'
 			})
