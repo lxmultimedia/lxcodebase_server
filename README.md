@@ -9,4 +9,7 @@ uses:
 * Authentication
 
 
-Used for "LXCodebase Client" (https://github.com/lxmultimedia/lxcodebase)
+MySQL DB: lxcodebase_mysql_DB.sql
+
+
+Used by "LXCodebase Client" (https://github.com/lxmultimedia/lxcodebase)
